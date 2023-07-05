@@ -1,0 +1,61 @@
+html {
+  background-color: #171717;
+}
+
+body {
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+body,
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  align-items: center;
+  background-color: #EAEFF2;
+  border-radius: 25px;
+  display: flex;
+  height: 40px;
+  justify-content: start;
+  overflow: hidden;
+  padding: 20px;
+  position: absolute;
+  width: 450px;
+}
+
+.input .profession {
+  font-family: Sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  padding-right: 8px;
+}
+
+.input .profession-type > p {
+  color: #bd98ef;
+  font-family: Sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.profession-type {
+  position: relative;
+  top: 57px;
+}
+
+.profession-type {
+  animation-name: rotate;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes rotate {
+  to {
+    transform: translateY(-60%)
+  }
+}
