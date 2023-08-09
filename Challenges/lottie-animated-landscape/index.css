@@ -1,0 +1,993 @@
+body,
+.landscape.landscape-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+/*Color Pallet*/
+:root {  
+  --color-cardinal: #C11F35;
+  --color-cerulean: #0BBBE3;
+  --color-christi: #71BA09;
+  --color-congo-brown: #593A37;
+  --color-english-walnut: #492E2A;
+  --color-ferra: #6B4D47;
+  --color-fire: #B82F00;
+  --color-fire-bush: #EA9E24;
+  --color-golden-sand: #F4C37D;
+  --color-japanese-laurel: #187401;
+  --color-malibu: #6EDFF9;
+  --color-mandy: #DD465B;
+  --color-milano-red: #AD2500;
+  --color-onahau: #C5F1FF;
+  --color-peach-orange: #FFD899;
+  --color-sail: #9DE3F6;
+  --color-tiara: #C9D1D4;
+  --color-yellow-orange: #FFB93D;
+  --color-white: #FFFFFF;
+}
+
+/*Start Sailboat Style*/
+.sailboat-container {
+  animation-name: move-sailboat;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-delay: 2s;
+  bottom: 40px;
+  display: flex;
+  display: block; /*hide sailboat*/
+  height: 250px;
+  left: 140px;
+  position: absolute;
+  width: 210px;
+  z-index: 1;
+}
+
+.headsail {
+  border-bottom: 110px solid var(--color-cardinal);
+  border-radius: 0 0 0 20px;
+  border-left: 90px solid transparent;
+  height: 0;
+  position: absolute;
+  left: 10px;
+  width: 0;
+}
+
+.headsail::after {
+  content: '';
+  background: var(--color-cardinal);
+  border-radius: 50% 0 0 50%;
+  height: 10px;
+  left: -85px;
+  position: absolute;
+  top: 100px;
+  width: 12px;
+}
+
+.mainsail {
+  border-bottom: 120px solid var(--color-cardinal);
+  border-radius: 0 0 20px 0;
+  border-right: 95px solid transparent;
+  height: 0;
+  right: 0px;
+  position: absolute;
+  top: 0px;
+  width: 0;
+}
+
+.mainsail::after {
+  content: '';
+  background: var(--color-cardinal);
+  bottom: -120px;
+  border-radius: 0 50% 50% 0;
+  height: 10px;
+  right: -90px;
+  position: absolute;
+  width: 12px;
+}
+
+.mast {
+  background: var(--color-mandy);
+  border-radius: 20px 20px 0 0;
+  position: absolute;
+  top: -10px;
+  left: 100px;
+  height: 155px;
+  width: 20px;
+}
+
+.battens-container {
+  height: 100px;
+  left: 20px;
+  position: absolute;
+  top: 10px;
+  width: 180px;
+}
+
+.battens {
+  border-bottom: 5px solid var(--color-mandy);
+  border-left: 6px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+}
+
+.battenOne {
+  top: 10px;
+  left: 59px;
+  width: 45px;
+}
+
+.battenTwo {
+  top: 30px;
+  left: 43px;
+  width: 76px;
+}
+
+.battenThree {
+  top: 50px;
+  left: 26px;
+  width: 109px;
+}
+
+.battenFour {
+  top: 70px;
+  left: 10px;
+  width: 141px;
+}
+
+.battenFive {
+  top: 88px;
+  left: -5px;
+  width: 171px;
+}
+
+.hull {
+  position: absolute;
+  width: 250px;
+  height: 70px;
+  top: 145px;
+  right: -40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.sailboat-shadow {
+  background: var(--color-cerulean);
+  border-radius: 50%;
+  bottom: 25px;
+  height: 15px;
+  position: absolute;
+  width: 230px;
+}
+
+.stern {
+  width: 40px;
+  height: 50px;
+  background: var(--color-yellow-orange);
+  border-radius: 10px 0 0 100%;
+  border-top: 20px solid var(--color-mandy);
+}
+
+.bodyHull {
+  width: 150px;
+  height: 50px;
+  background: var(--color-yellow-orange);
+  border-top: 20px solid var(--color-mandy);
+}
+
+.bow .bowTop {
+  width: 55px;
+  height: 20px;
+  background: var(--color-mandy);
+  border-radius: 0 10px 4px 0;
+}
+
+.bow .bowdown {
+  border-top: 50px solid var(--color-yellow-orange);
+  border-right: 52px solid transparent;
+  position: absolute;
+  top: 20px;
+}
+
+.windows {
+  display: flex;
+  flex-direction: row;
+  height: 25px;
+  justify-content: space-around;
+  left: 20px;
+  position: absolute;
+  top: 170px;
+  width: 180px;
+}
+
+.window {
+  background-color: var(--color-cardinal);
+  border: 3px solid var(--color-fire-bush);
+  border-radius: 50%;
+  box-shadow: inset 3px 3px 4px rgba(160,12,33,255);
+  height: 20px;
+  width: 20px;
+}
+
+/*Start landScape background Style*/
+.landscape-background {
+  background: var(--color-onahau);
+  border-radius: 50%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  width: 500px;
+}
+
+/************Sky style****************/
+.sky-container {
+  animation-name: move-clouds;
+  animation-iteration-count: infinite;
+  animation-duration: 35s;
+  animation-timing-function: linear;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: fit-content;
+}
+
+.sky-background {
+  width: 500px;
+  height: 330px;
+  position: relative;
+}
+
+.cloud-tiny,
+.cloud-small,
+.cloud-medium,
+.cloud-large {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+}
+
+.cloud-large {
+  top: 100px;
+}
+
+.cloud-small {
+  right: 40px;
+  top: 50px;
+}
+
+.cloud-medium {
+  bottom: 60px;
+  right: 40px;
+}
+
+.cloud-tiny {
+  bottom: 0px;
+  left: 50px;
+}
+
+.sky-background .cloud-large .cloud-top {
+  background: var(--color-malibu);
+  border-radius: 50px 50px;
+  height: 25px;
+  width: 200px;
+}
+
+.sky-background .cloud-large .cloud-middle {
+  background:
+    radial-gradient(95% 96% at left, transparent 50%, var(--color-malibu) 54%),
+    radial-gradient(55% 96% at right, transparent 50%, var(--color-malibu) 54%);
+  background-size: 50px 20px, 50px 20px;
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 100px;
+}
+
+.sky-background .cloud-large .cloud-bottom {
+  background: var(--color-malibu);
+  border-radius: 50px 50px;
+  height: 25px;
+  width: 240px;
+}
+
+.sky-background .cloud-small .cloud-top {
+  background: var(--color-white);
+  border-radius: 50px 50px;
+  height: 15px;
+  width: 140px;
+}
+
+.sky-background .cloud-small .cloud-middle {
+  background:
+    radial-gradient(55% 96% at left, transparent 50%, var(--color-white) 54%),
+    radial-gradient(55% 96% at right, transparent 50%, var(--color-white) 54%);
+  background-size: 20px 15px, 20px 15px;
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat;
+  height: 15px;
+  width: 40px;
+}
+
+.sky-background .cloud-small .cloud-bottom {
+  background: var(--color-white);
+  border-radius: 50px 50px;
+  height: 15px;
+  width: 100px;
+}
+
+.sky-background .cloud-tiny .cloud-top {
+  background: var(--color-tiara);
+  border-radius: 50px 50px;
+  height: 13px;
+  width: 50px;
+}
+
+.sky-background .cloud-tiny .cloud-middle {
+  background:
+    radial-gradient(75% 96% at left, transparent 50%, var(--color-tiara) 54%),
+    radial-gradient(75% 96% at right, transparent 50%, var(--color-tiara) 54%);
+  background-size: 15px 13px, 15px 13px;
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat;
+  height: 13px;
+  width: 30px;
+}
+
+.sky-background .cloud-tiny .cloud-bottom {
+  background: var(--color-tiara);
+  border-radius: 50px 50px;
+  height: 13px;
+  width: 80px;
+}
+
+.sky-background .cloud-medium .cloud-top {
+  background: var(--color-malibu);
+  border-radius: 50px 50px;
+  height: 17px;
+  width: 180px;
+}
+
+.sky-background .cloud-medium .cloud-middle {
+  background:
+    radial-gradient(85% 96% at left, transparent 50%, var(--color-malibu) 54%),
+    radial-gradient(85% 96% at right, transparent 50%, var(--color-malibu) 54%);
+  background-size: 40px 17px, 40px 17px;
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat;
+  height: 17px;
+  width: 80px;
+}
+
+.sky-background .cloud-medium .cloud-bottom {
+  background: var(--color-malibu);
+  border-radius: 50px 50px;
+  height: 17px;
+  width: 130px;
+}
+
+/*Start Island Style*/
+.skyline-ocean {
+  align-items: center;
+  animation-name: move-islands;
+  animation-iteration-count: infinite;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  background: var(--color-cerulean);
+  bottom: 115px;
+  display: flex;
+  /*display: none;*/
+  flex-direction: row;
+  height: 50px;
+  justify-content: space-around;
+  left: 15px;
+  position: absolute;
+  width: 2100px;
+}
+
+.big-islan-container {
+  position: relative;
+  width: 320px;
+}
+
+.small-islan-container {
+  position: relative;
+  width: 260px;
+}
+
+.island {
+  border-radius: 50% / 100% 100% 0 0;
+  position: absolute;
+}
+
+.front-big-island {
+  background: var(--color-golden-sand);
+  bottom: 0px;
+  height: 50px;
+  width: 190px;
+}
+
+.front-small-island {
+  background: var(--color-golden-sand);
+  bottom: 0px;
+  height: 40px;
+  width: 160px;
+}
+
+.back-big-island {
+  background: var(--color-peach-orange);
+  bottom: 10px;
+  right: 0px;
+  height: 60px;
+  width: 190px;
+}
+
+.back-small-island {
+  background: var(--color-peach-orange);
+  bottom: 10px;
+  right: 0px;
+  height: 50px;
+  width: 160px;
+}
+
+.palm-right-container {
+  width: 60px;
+  height: 170px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px
+}
+
+.palm-left-container {
+  width: 60px;
+  height: 170px;
+  position: absolute;
+  bottom: 30px;
+  left: 30px
+}
+
+.big-tree {
+  background: var(--color-milano-red);
+  position: absolute;
+  width: 40px;
+  height: 170px;
+}
+
+.small-tree {
+  background: var(--color-milano-red);
+  position: absolute;
+  width: 30px;
+  height: 130px;
+}
+
+.leaf-container {
+  position: absolute;
+  left: 5px;
+  top: -15px;
+}
+
+.cocunuts-container {
+  width: 70px;
+  height: 55px;
+  position: absolute;
+  top: -15px;
+  left: -25px;
+}
+
+.cocunut {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.cocunut-one {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background: var(--color-english-walnut);
+}
+
+.cocunut-two {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background: var(--color-ferra);
+}
+
+.cocunut-three {
+  position: absolute;
+  top: 0px;
+  left: 15px;
+  background: var(--color-congo-brown);
+}
+
+.tree-right {
+  border-radius: 50% 0% / 100% 0;
+  border-right: 10px solid var(--color-fire);
+}
+
+.tree-left {
+  border-radius: 0 50% / 0 100%;
+  border-left: 10px solid var(--color-fire);
+}
+
+.leaf {
+  width: 120px;
+  height: 40px;
+  border-radius: 50% / 100% 100% 0 0;
+  background: var(--color-christi);
+  border-left: 6px solid;
+  border-right: 6px solid;
+  border-top: 10px solid;
+  border-color: var(--color-japanese-laurel);
+  position: relative;
+}
+
+.leaf-one {
+  position: absolute;
+  left: -120px;
+  transform: rotate(-40deg)
+}
+
+.leaf-two {
+  position: absolute;
+  left: -60px;
+  top: -80px;
+  transform: rotate(-80deg)
+}
+
+.leaf-three {
+  position: absolute;
+  left: -10px;
+  top: -70px;
+  transform: rotate(-30deg)
+}
+
+.leaf-four {
+  transform: rotate(30deg)
+}
+
+.leaf-five {
+  position: absolute;
+  left: -110px;
+  top: -50px;
+  transform: rotate(10deg);
+}
+
+.veins {
+  align-items: end;
+  bottom: 0px;
+  display: flex;
+  gap: 20px;
+  left: 20px;
+  position: absolute;
+}
+
+.vein {
+  background: var(--color-japanese-laurel);
+  border-radius: 20px 20px 0 0;
+  height: 20px;
+  width: 12px;
+}
+
+.bigVein {
+  height: 30px;
+}
+
+.big-islan-container .back-big-island .palm-right-container .tree-right {
+  height: 150px;
+  width: 30px;
+}
+
+.big-islan-container .back-big-island .palm-right-container .tree-right .leaf {
+  height: 20px;
+  width: 70px;
+}
+
+.big-islan-container .back-big-island .palm-right-container .tree-right .leaf .veins {
+  gap: 8px;
+  left: 15px;
+}
+
+.big-islan-container .back-big-island .palm-right-container .tree-right .leaf .veins .vein {
+  height: 10px;
+  width: 8px;
+}
+
+.big-islan-container .back-big-island .palm-right-container .tree-right .leaf-container {
+  left: 30px;
+  top: 10px;
+}
+
+.big-islan-container .back-big-island .palm-right-container .tree-right .leaf-container .leaf-five {
+  left: -80px;
+  top: -40px;
+}
+
+.big-islan-container .back-big-island .palm-right-container .tree-right .leaf-container .leaf-one {
+  left: -80px;
+  top: -10px
+}
+
+.big-islan-container .back-big-island .palm-right-container .tree-right .leaf-container .leaf-two {
+  left: -45px;
+  top: -60px;
+  transform: rotate(60deg)
+}
+
+.big-islan-container .back-big-island .palm-right-container .tree-right .leaf-container .leaf-three {
+  left: -10px;
+  top: -50px;
+}
+
+.big-islan-container .back-big-island .palm-right-container .tree-right .leaf-container .leaf-four {
+  left: -10px;
+  top: -10px;
+}
+
+.big-islan-container .back-big-island .palm-right-container .tree-right .leaf .veins .vein.bigVein {
+  height: 15px;
+}
+
+.big-islan-container .back-big-island .palm-right-container .tree-right .cocunuts-container {
+  height: 45px;
+  left: -5px;
+  top: -5px;
+  width: 60px;
+}
+
+.small-islan-container .front-small-island .palm-left-container .tree-left .cocunuts-container .cocunut,
+.big-islan-container .back-big-island .palm-right-container .tree-right .cocunuts-container .cocunut {
+  height: 30px;
+  width: 30px;
+}
+
+.small-islan-container .back-small-island .palm-right-container,
+.small-islan-container .front-small-island .palm-left-container {
+  height: 130px;
+  width: 40px;
+}
+
+.small-islan-container .front-small-island .palm-left-container .tree-left .leaf-container {
+  height: 30px;
+  left: -18px;
+  position: absolute;
+  top: -20px;
+  width: 30px;
+}
+
+.small-islan-container .front-small-island .palm-left-container .tree-left .leaf-container .leaf {
+  height: 25px;
+  position: relative;
+  width: 90px;
+}
+
+.small-islan-container .front-small-island .palm-left-container .tree-left .leaf-container .leaf-five {
+  left: -80px;
+  top: -20px;
+}
+
+.small-islan-container .front-small-island .palm-left-container .tree-left .leaf-container .leaf-one {
+  left: -85px;
+  top: -10px
+}
+
+.small-islan-container .front-small-island .palm-left-container .tree-left .leaf-container .leaf-two {
+  left: -45px;
+  top: -120px;
+  transform: rotate(60deg)
+}
+
+.small-islan-container .front-small-island .palm-left-container .tree-left .leaf-container .leaf-three {
+  left: 5px;
+  top: -135px;
+}
+
+.small-islan-container .front-small-island .palm-left-container .tree-left .leaf-container .leaf-four {
+  left: 15px;
+  top: -125px;
+}
+
+.small-islan-container .front-small-island .palm-left-container .tree-left .leaf .veins {
+  gap: 12px;
+  left: 18px;
+}
+
+.small-islan-container .front-small-island .palm-left-container .tree-left .leaf-container .vein {
+  height: 13px;
+  width: 10px;
+}
+
+.small-islan-container .front-small-island .palm-left-container .tree-left .leaf-container .vein.bigVein {
+  height: 20px;
+}
+
+.small-islan-container .front-small-island .palm-left-container .tree-left .cocunuts-container {
+  height: 45px;
+  left: -25px;
+  top: -10px;
+  width: 60px;
+}
+
+.small-islan-container .back-small-island .palm-right-container {
+  bottom: 30px;
+}
+
+.small-islan-container .back-small-island .palm-right-container .tree-right .leaf-container .leaf {
+  border-left: 4px solid var(--color-japanese-laurel);
+  border-right: 4px solid var(--color-japanese-laurel);
+  border-top: 8px solid var(--color-japanese-laurel);
+  height: 18px;
+  width: 65px;
+}
+
+.small-islan-container .back-small-island .palm-right-container .tree-right .leaf .veins {
+  gap: 8px;
+  left: 12px;
+}
+
+.small-islan-container .back-small-island .palm-right-container .tree-right .leaf-container .vein {
+  height: 8px;
+  width: 8px;
+}
+
+.small-islan-container .back-small-island .palm-right-container .tree-right .leaf-container .vein.bigVein {
+  height: 15px;
+}
+
+.small-islan-container .back-small-island .palm-right-container .tree-right .leaf-container .leaf-five {
+  left: -50px;
+  top: -15px;
+}
+
+.small-islan-container .back-small-island .palm-right-container .tree-right .leaf-container .leaf-one {
+  left: -50px;
+  top: 15px;
+}
+
+.small-islan-container .back-small-island .palm-right-container .tree-right .leaf-container .leaf-two {
+  left: -20px;
+  top: -40px;
+}
+
+.small-islan-container .back-small-island .palm-right-container .tree-right .leaf-container .leaf-three {
+  left: 10px;
+  top: -30px;
+}
+
+.small-islan-container .back-small-island .palm-right-container .tree-right .leaf-container .leaf-four {
+  left: 15px;
+  top: 10px;
+}
+
+.small-islan-container .back-small-island .palm-right-container .tree-right .cocunut {
+  height: 25px;
+  width: 25px
+}
+
+.small-islan-container .back-small-island .palm-right-container .tree-right .cocunuts-container {
+  height: 40px;
+  left: 0px;
+  top: -10px;
+  width: 50px;
+}
+
+/*Ocean Style*/
+.landscape-oceanDark {
+  overflow: hidden;
+}
+
+.oceanLight-container,
+.landscape-ocean .landscape-oceanLight,
+.landscape-ocean .landscape-oceanDark {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.oceanLight-bottom,
+.oceanLight-top {
+  overflow: hidden;
+  display: flex;
+}
+
+.landscape-ocean .landscape-oceanLight {
+  bottom: -10px;
+  left: -30px;
+  position: absolute;
+}
+
+.landscape-oceanLight .oceanLight-top {
+  background: var(--color-sail);
+  border-radius: 50px 50px;
+  height: 60px;
+  width: 550px;
+}
+
+.landscape-oceanLight .oceanLight-middle {
+  background:
+    radial-gradient(20% 96% at left, transparent 50%, var(--color-sail) 54%),
+    radial-gradient(20% 96% at right, transparent 50%, var(--color-sail) 54%);
+  background-size: 200px 30px, 200px 30px;
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 400px;
+}
+
+.landscape-oceanLight .oceanLight-bottom {
+  background: var(--color-sail);
+  border-radius: 50px 50px;
+  height: 40px;
+  width: 450px;
+}
+
+.landscape-ocean .landscape-oceanDark {
+  bottom: -80px;
+  left: 10px;
+  position: absolute;
+}
+
+.landscape-oceanDark .oceanDark-top {
+  background:
+    radial-gradient(20% 96% at left, transparent 50%, var(--color-cerulean) 54%),
+    radial-gradient(20% 96% at right, transparent 50%, var(--color-cerulean) 54%);
+  background-size: 200px 30px, 200px 30px;
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 400px;
+}
+
+.landscape-oceanDark .oceanDark-middle {
+  background: var(--color-cerulean);
+  border-radius: 50px 50px;
+  height: 40px;
+  width: 450px;
+}
+
+.ocean-currents-container {
+  width: 50px;
+  height: 50px;
+}
+
+.ocean-currents {
+  width: 20px;
+  height: 55px;
+  background: var(--color-sail);
+  transform: rotate(40deg);
+  position: absolute;
+}
+
+.oceanDark-top .ocean-currents {
+  top: -12px;
+  left: 70px
+}
+
+.oceanDark-middle .ocean-currents {
+  bottom: -14px;
+  left: 36px
+}
+
+.ocean-currents::after {
+  content: '';
+  width: 10px;
+  height: 55px;
+  background: var(--color-sail);
+  position: absolute;
+}
+
+.oceanDark-top .ocean-currents::after {
+  left: 30px;
+  top: -18px
+}
+
+.oceanDark-middle .ocean-currents::after {
+  bottom: 18px;
+  left: 30px
+}
+
+/*Tide Style*/
+.tide-container {
+  animation-name: move-tides;
+  animation-iteration-count: infinite;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  display: flex;
+}
+
+.tide-top {
+  width: 150px;
+  height: 60px;
+  position: relative;
+}
+
+/*.tide-middle {
+  width: 150px;
+  height: 25px;
+  position: relative;
+}*/
+
+.tide-bottom {
+  width: 150px;
+  height: 35px;
+  position: relative;
+}
+
+.wave {
+  height: 8px;
+  background: var(--color-cerulean);
+  border-radius: 50px 50px;
+  position: absolute;
+}
+
+.wave-extra-large {
+  width: 80px;
+  top: 10px;
+}
+
+.wave-large {
+  width: 70px;
+  top: 0px;
+  right: 30px
+}
+
+/*.wave-medium {
+  width: 60px;
+  bottom: 10px;
+}*/
+
+.wave-small {
+  width: 40px;
+  bottom: 5px;
+  left: 60px
+}
+
+.wave-tiny {
+  width: 20px;
+  bottom: 0px;
+  left: 0px;
+}
+
+/*********** Animations ***************/
+
+@keyframes move-tides {
+  to   {
+    transform: translateX(-290px);
+  }
+}
+
+@keyframes move-clouds {
+  from {
+    transform: translateX(500px);
+  }
+  to   {
+    transform: translateX(-1000px);
+  }
+}
+
+@keyframes move-islands {
+  to   {
+    transform: translateX(-1550px);
+  }
+}
+
+@keyframes move-sailboat {
+  from {
+    bottom: 40px;
+  }
+  25% {
+    bottom: 42px;
+  }
+  50% {
+    bottom: 43px;
+  }
+  to   {
+    bottom: 44px;
+  }
+}
