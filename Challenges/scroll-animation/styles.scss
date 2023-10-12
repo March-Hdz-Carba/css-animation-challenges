@@ -1,0 +1,130 @@
+/*
+DOCUMENTATION
+
+=== scroll-snap ===
+https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type
+
+https://midu.dev/css-scroll-snap-la-solucion-definitiva-a-la-creacion-de-sliders-en-la-web/
+
+https://css-tricks.com/practical-css-scroll-snapping/
+
+=== animations scss ===
+https://dev.to/inverseswirl/how-to-add-keyframes-animation-code-in-scss-46k8
+
+*/
+
+/* COLORS */
+$wild-sand : #f4f4f4;
+
+/* FUNCTION GET IMAGE */
+$assets: (
+  1: 'nature',
+  2: 'girl',
+  3: 'music'
+);
+
+@function image($key) {
+  $id: map-get($assets, $key);
+  @return url('https://loremflickr.com/g/1920/1080/' + $id);
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: columm;
+  font-family: 'Tahoma', sans-serif;
+  margin: 0;
+}
+
+.page-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /*scroll-behavior: smooth; //A easy flow scroll
+  overflow-y: scroll; //Direction scroll + scroll-behavior = smooth
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;*/
+}
+
+nav {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+ul {
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  margin: 0 12px;
+}
+
+ul a {
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  color: $wild-sand;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-color: #cccccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  @each $asset in $assets {
+    $i: index($assets, $asset);
+    &:nth-child(#{$i}) { 
+      background-image: image($i);
+    }
+  }
+}
+
+.square1,
+.square {
+  width: 200px;
+  height: 200px;
+  background: orange;
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@include keyframes(wipe-enter) {
+    0% {
+      transform: scale(0, .025);
+    }
+    50% {
+      transform: scale(1, .025);
+    }
+  }
+
+.square-animation {
+  @include animation('wipe-enter 1s 1');
+}
