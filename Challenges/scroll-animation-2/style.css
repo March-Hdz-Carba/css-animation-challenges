@@ -1,0 +1,69 @@
+body {
+  position: relative;
+  height: 250vh;
+  display: flex;
+  flex-direction: columm;
+  justify-content: center;
+  margin: 10px;
+}
+
+.containner {
+  width: 300px;
+  min-height: 20vh;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: stick;
+}
+
+.block {
+  width: 20px;
+  height: 20px;
+}
+
+.block1 {
+  background: green;
+  transform: translateY(-100px);
+}
+
+.block1 .moving {
+  transform : translateY(150);
+}
+
+.block2 {
+  background: orange;
+  transform: translateY(10px);
+}
+
+.block2 .moving {
+  transform : translateY(60);
+}
+
+.block3 {
+  background: purple;
+  transform: translateY(20px);
+}
+
+.block3 .moving {
+  transform : translateY(70);
+}
+
+.block4 {
+  background: blue;
+  transform: translateY(30px);
+}
+
+.block4 .moving {
+  transform : translateY(80);
+}
+
+.block5 {
+  background: pink;
+  transform: translateY(40px);
+}
+
+.block5 .moving {
+  transform : translateY(90);
+}

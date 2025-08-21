@@ -13,7 +13,7 @@ threshold -> Percentage of the element must be visible before isIntersecting bec
 
 const options = {
   threshold: 1,
-  rootMargin: "-100px"
+  rootMargin: "100px"
 };
 
 const observer = new IntersectionObserver(entries => {

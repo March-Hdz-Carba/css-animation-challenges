@@ -74,13 +74,13 @@ section {
   align-items: center;
 }
 section:nth-child(1) {
-  background-image: url("https://loremflickr.com/g/1920/1080/nature");
+  background-image: url("./images/a-small-green-bird-sits-on-thin-branch-in-a-green-tree.jpg");
 }
 section:nth-child(2) {
-  background-image: url("https://loremflickr.com/g/1920/1080/girl");
+  background-image: url("./images/aerial-photo-of-people-stands-in-a-circle-in-water.jpg");
 }
 section:nth-child(3) {
-  background-image: url("https://loremflickr.com/g/1920/1080/music");
+  background-image: url("./images/four-trees-and-a-person-standing-in-the-middle.jpg");
 }
 
 .square1,
